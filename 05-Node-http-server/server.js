@@ -9,22 +9,34 @@ const server = http.createServer((req, res) => {
 
     switch (req.url) {
         case '/':
-            filename = "home.html"
+            filename = "home.html";
+            res.statusCode = 200;
+            break;
+        case '/home':
+            res.statusCode = 301;
+            res.setHeader('Location','/');
             break;
         case '/contact':
-            filename = "contact.html"
+            filename = "contact.html";
+            res.statusCode = 200;
+            break;
+        case '/contact-us':
+            res.statusCode = 301;
+            res.setHeader('Location','/contact');
             break;
         case '/about':
-            filename = "about.html"
+            filename = "about.html";
+            res.statusCode = 200;
             break;
-        default:    
-            filename = "404.html"
+        default:
+            filename = "404.html";
+            res.statusCode = 404;
             break;
     }
 
     res.setHeader('Content-Type', 'text/html');
 
-    fs.readFile('./views/'+filename, (err, data) => {
+    fs.readFile('./views/' + filename, (err, data) => {
         if (err) {
             console.log(err);
             res.end();
