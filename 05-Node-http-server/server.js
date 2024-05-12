@@ -9,6 +9,7 @@ const server = http.createServer((req, res) => {
 
     switch (req.url) {
         case '/':
+            console.log('home page is requesting...')
             filename = "home.html";
             res.statusCode = 200;
             break;
