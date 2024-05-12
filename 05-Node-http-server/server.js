@@ -1,5 +1,8 @@
 const http = require('http');
 const fs = require('fs');
+const _ = require('lodash');
+
+console.log(_.random(20));
 
 const server = http.createServer((req, res) => {
 
@@ -37,7 +40,7 @@ const server = http.createServer((req, res) => {
 
     res.setHeader('Content-Type', 'text/html');
 
-    fs.readFile('./views/' + filename, (err, data) => {
+    fs.readFile('./05-Node-http-server/views/' + filename, (err, data) => {
         if (err) {
             console.log(err);
             res.end();

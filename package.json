@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "scripts": {
+    "start": "nodemon 05-Node-http-server/server.js"
+  },
+  "name": "nodejs_basic",
+  "version": "1.0.0",
+  "main": "05-Node-http-server/server.js",
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
