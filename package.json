@@ -1,14 +1,14 @@
 {
   "dependencies": {
+    "express": "^4.19.2",
     "lodash": "^4.17.21"
   },
   "scripts": {
-    "start": "nodemon 05-Node-http-server/server.js"
+    "start": "nodemon app.js"
   },
   "name": "nodejs_basic",
   "version": "1.0.0",
-  "main": "05-Node-http-server/server.js",
-  "devDependencies": {},
+  "main": "app.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
