@@ -15,20 +15,27 @@ app.get('/',(req,res) => {
 
     res.render('home',{
         // blogs : blogs 
-        blogs
+        blogs,
+        title : "Home",
     })
 })
 
 app.get('/about',(req,res) => {
-    res.render('about')
+    res.render('about',{
+        title : "About"
+    })
 })
 
 app.get('/contact',(req,res) => {
-    res.render('contact')
+    res.render('contact', {
+        title : "Contact"
+    })
 })
 
 app.use((req,res) => {
-    res.status(404).render('404')
+    res.status(404).render('404', {
+        title : "404 Not Found"
+    })
 })
 
 
