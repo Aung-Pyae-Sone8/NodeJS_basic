@@ -5,6 +5,16 @@ const app = express();
 app.set('views', './views');
 app.set('view engine', 'ejs')
 
+app.use((req,res,next) => {
+    console.log('first middleware is running');
+    next();
+})
+
+app.use((req,res,next) => {
+    console.log('second middleware is runnging');
+    next();
+})
+
 app.get('/',(req,res) => {
 
     let blogs = [
