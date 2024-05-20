@@ -20,6 +20,7 @@ app.set('view engine', 'ejs')
 
 // morgan package 
 app.use(morgan('dev'));
+app.use(express.static('public'))
 
 app.get('/', (req, res) => {
 
