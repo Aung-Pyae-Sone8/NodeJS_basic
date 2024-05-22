@@ -44,17 +44,20 @@ app.get('/add-blog',async (req,res) => {
     res.send('blog saved');
 })
 
+// get single blog 
+app.get('/single-blog', async (req,res) => {
+    let blog = await Blog.findById('664d86722a08c6c7eadb8def');
+    res.json(blog);
+})
+
 // morgan package 
 app.use(morgan('dev'));
 app.use(express.static('public'))
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
 
-    let blogs = [
-        { title: 'Blog title 1', intro: 'this is blog intro 1' },
-        { title: 'Blog title 2', intro: 'this is blog intro 2' },
-        { title: 'Blog title 3', intro: 'this is blog intro 3' },
-    ]
+    let blogs = await Blog.find().sort({createdAt : -1});
+    console.log(blogs)
 
     res.render('home', {
         // blogs : blogs 
