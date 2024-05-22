@@ -2,6 +2,7 @@ const express = require('express');
 let morgan = require('morgan');
 const mongoose = require('mongoose');
 const Blog = require('./models/Blog');
+var expressLayouts = require('express-ejs-layouts');
 
 const app = express();
 
@@ -19,7 +20,9 @@ mongoose.connect(mongoUrl).then(() => {
 // npm install mongoose 
 
 app.set('views', './views');
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
+app.use(expressLayouts);
+app.set('layout', 'layouts/default.ejs');
 
 // custom package 
 // let logger = (env) => {
@@ -75,6 +78,12 @@ app.get('/about', (req, res) => {
 app.get('/contact', (req, res) => {
     res.render('contact', {
         title: "Contact"
+    })
+})
+
+app.get('/blogs/create', (req, res) => {
+    res.render('blogs/create', {
+        title: "Blog Create"
     })
 })
 
